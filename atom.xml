@@ -4,13 +4,23 @@
   <title><![CDATA[kavalon]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2016-07-19T16:55:13+08:00</updated>
+  <updated>2016-07-19T17:30:08+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[memo1 test]]></title>
+    <link href="http://klovelovely.github.io/14689950529322.html"/>
+    <updated>2016-07-20T14:10:52+08:00</updated>
+    <id>http://klovelovely.github.io/14689950529322.html</id>
+    <content type="html"><![CDATA[
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Buy list]]></title>
