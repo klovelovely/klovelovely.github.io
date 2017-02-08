@@ -4,13 +4,25 @@
   <title><![CDATA[kavalon]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2016-09-01T12:12:15+08:00</updated>
+  <updated>2016-09-01T12:16:07+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[Battlefield1 Open Beta]]></title>
+    <link href="http://klovelovely.github.io/14730379553647.html"/>
+    <updated>2016-09-05T09:12:35+08:00</updated>
+    <id>http://klovelovely.github.io/14730379553647.html</id>
+    <content type="html"><![CDATA[
+<p>高还原度<br/>
+狙击瞄准时的呼吸导致的准星晃动, 奔跑, 匍匐前进, 被炮击夷为平地的民房</p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mac]]></title>
@@ -22,9 +34,9 @@
 
 <p>系统流畅简洁，没有QQ弹窗、百度全家桶这些的烦恼 - 可能和占有量/受众都有关系, 不过这样的状态总归是不错的, 不太好的是有些功能也会少</p>
 
-<p>Mac 的窗口系统的确很独特, 从 Sublime Text 的关闭和 Cmd + Q</p>
+<p>Mac 的窗口系统的确很独特, 从 Sublime Text 的 &quot;关闭窗口会提示保存&quot; 和 &quot;Cmd + Q 不会提示&quot; 就可见一斑</p>
 
-<p>control+command+空格 emoji表情</p>
+<p>control+command+空格 - 这个 emoji 表情还是挺有意思的</p>
 
 ]]></content>
   </entry>
