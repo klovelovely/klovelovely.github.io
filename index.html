@@ -77,6 +77,8 @@
 
         
             <li><a href="memo.html">memo</a></li>
+        
+            <li><a href="tech.html">tech</a></li>
          
 
       </ul>
@@ -99,38 +101,77 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="14768687916441.html">
+                <a class="clearlink" href="14919047125523.html">
                 
-                  <h1>Technical Otakus Save The World</h1>
+                  <h1>使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks</h1>
                   <div class="a-content">
                       
                       <div class="a-content-text">
                         
-                        	<h3 id="toc_0">活动(漫展):</h3>
+                        	<h3 id="toc_0">在命令行中执行 npm install 时下载 Phantomjs 依赖包失败的问题</h3>
 
-<p><strong><a href="http://nyato.com/manzhan/5592/">2016北京梦次元万圣节专场——不给糖就捣乱</a> 2016-10-30 10:00-17:00</strong><br/>
-<a href="http://nyato.com/manzhan/5938/">10月30日梦次元万圣节狂欢夜+九囍丸子周年祭大公演</a> 2016-10-30 17:00-21:00<br/>
-<strong><a href="http://nyato.com/manzhan/3910/">第15届M.Y.Comic动漫游戏节（MYC15）</a> 2016-11-06 10:00-17:00</strong></p>
+<p>shadowsocks 已经开了, 但是这个文件通过命令行依然无法访问, 可以在命令行里试着跑一下这个:</p>
 
-<h3 id="toc_1">音乐</h3>
+<pre><code class="language-bash">wget https://github.com/Medium/phantomjs/releases/download/v2.1.1//phantomjs-2.1.1-macosx.zip
+</code></pre>
 
-<p><a href="http://nyato.com/manzhan/5606/">2016北京第三届COSPACE帝都大音乐祭 二次元音乐会</a> 2016-11-19 14:00-19:00<br/>
-<strong><a href="http://nyato.com/manzhan/5605/">初音未来2016中国演唱会北京站</a> 2016-12-10 10:00 - 2016-12-11 17:00</strong></p>
+<p>如果提示操作超时(类似下面的提示), 就可以证明是这个问题了.</p>
 
-<h3 id="toc_2">展会</h3>
+<blockquote>
+<p>Connecting to github-cloud.s3.amazonaws.com|54.231.49.96|:443... failed: Operation timed out.</p>
+</blockquote>
 
-<p><a href="http://nyato.com/manzhan/4051/">第三届中国北京国际动漫产业展览会</a> 2016-11-23 10:00 - 2016-11-25 17:00</p>
+<p>由于 shadowsocks 是基于 socket 的协议, 无法代理更底层的 TCP/IP, 所以需要一个工具可以让 TCP/IP 也走 socket5.</p>
 
-<h3 id="toc_3">电影</h3>
+<p>之前一直用的是 proxychains, 但是每次执行都需要在单个命令前加前缀, 虽然可以 alias 成更短的 ps, 但 npm install 安装依赖的话还是非常不方便.</p>
 
-<p><strong><a href="https://movie.douban.com/subject/26683290/">你的名字</a> 2016-11(中国大陆) / 2016-08-26(日本) <a href="http://www.acgdoge.net/archives/12028">参考信息</a></strong></p>
+<p>后来找到了这个 <a href="https://www.proxifier.com">Proxifier</a></p>
 
-<h3 id="toc_4"><a href="https://www.zhihu.com/question/34010758/answer/91600596">女仆咖啡厅</a></h3>
+<p>这个工具也有 <a href="">Windows 版</a></p>
 
-<p><strong><a href="http://www.dianping.com/shop/4539269">屋根里女仆主题餐厅(亮马桥店)</a></strong><br/>
-<strong><a href="http://www.dianping.com/shop/18486513">星萌女仆主题咖啡厅</a></strong><br/>
-<a href="http://www.dianping.com/shop/20693484">卯月女仆主题餐厅</a> <a href="http://www.acgdoge.net/archives/1641">参考信息</a><br/>
-<a href="https://zh.moegirl.org/%E5%A5%B3%E4%BB%86%E5%92%96%E5%95%A1%E5%8E%85">其他城市</a></p>
+<p>神秘代码我神马都布吉岛(雾 <code>P427L-9Y552-5433E-8DSR3-58Z68</code></p>
+
+<p>个人感觉还是非常好用的, 推荐使用 Windows 和 Mac 的同学试一下~</p>
+
+<p>打开后配置好本地 IP 127.0.0.1 和本地端口 1080 type 为 socks5, 就可以使用了.</p>
+
+<p>优点:</p>
+
+<ul>
+<li>自定义每个应用设置是否proxy</li>
+<li>自定义host是否proxy</li>
+<li>不影响浏览器是否全局</li>
+<li>查看当前连接</li>
+</ul>
+
+<p>另外, 使用 linux 的同学可以尝试下 redproxy .</p>
+
+<p>来源: <a href="http://sxiaojian.com/2016/07/04/terminal-shadowsocks/">http://sxiaojian.com/2016/07/04/terminal-shadowsocks/</a></p>
+
+<h3 id="toc_1">Ruby 推荐安装方式</h3>
+
+<ol>
+<li>安装 <a href="https://ruby-china.org/wiki/install_ruby_guide">Ruby(rvm)</a></li>
+<li>然后安装 sass compass - gem install sass compass</li>
+</ol>
+
+<h3 id="toc_2">Node 安装方式</h3>
+
+<ol>
+<li><a href="http://nodejs.org">node(nvm)</a></li>
+<li>然后升级 node 自带的 npm 到最新版本 <code>npm install --global npm@latest</code></li>
+</ol>
+
+<h3 id="toc_3"><a href="http://yeoman.io/codelab/setup.html">Yeoman</a> 相关配置</h3>
+
+<pre><code>* npm install grunt-cli gulp-cli Yeoman -g
+</code></pre>
+
+<hr/>
+
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
 
                         
                       </div>
@@ -139,7 +180,154 @@
                 <div class="read-more clearfix">
                   <div class="more-left left">
                   
-                    <span class="date">2016/10/19</span>
+                    <span class="date">2017/4/11</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='tech.html'>tech</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14910675180431.html">
+                
+                  <h1>万圣 (请注意, 可能会造成不适)</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8401.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8401"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8421.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8421"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8456.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8456"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8556.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8556"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8576.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8576"/></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/4/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14910672431139.html">
+                
+                  <h1>那你很棒棒哦</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160727_001958.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160727_001958"/></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/4/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14910668990836.html">
+                
+                  <h1>我有菊麻麦皮不知当桨不当桨</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7954.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7954"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7956.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7956"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8089.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8089"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8102.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8102"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8104.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8104"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8107.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8107"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8118.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8118"/></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/4/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14910664600836.html">
+                
+                  <h1>无题3</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7866.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7866"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7870.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7870"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7871.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7871"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7884.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7884"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7885.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7885"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7886.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7886"/></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/4/2</span>
                     <span>posted in&nbsp;</span> 
           				  
           					    <span class="posted-in"><a href='memo.html'>memo</a></span>
@@ -166,7 +354,7 @@
 			  </div>
 			  <div class="large-6 columns">
 			<p class="text-right" style="padding-top:25px;">
-			
+			 <a href="all_1.html">&raquo; Next Page</a> 
 			</p>
 			  </div>
 			</div>
@@ -208,6 +396,8 @@
       	<p class="cat-list">
         
             <a href="memo.html"><strong>memo</strong></a>
+        
+            <a href="tech.html"><strong>tech</strong></a>
          
         </p>
 
@@ -224,9 +414,53 @@
 	      
 		      
 			      <li class="post">
-			        <a href="14768687916441.html">Technical Otakus Save The World</a>
+			        <a href="14919047125523.html">使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks</a>
 			      </li>
 		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910675180431.html">万圣 (请注意, 可能会造成不适)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910672431139.html">那你很棒棒哦</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910668990836.html">我有菊麻麦皮不知当桨不当桨</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910664600836.html">无题3</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
 		   
 		  		</ul>
                 </div>

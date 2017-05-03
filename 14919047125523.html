@@ -1,0 +1,374 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+    
+  使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks - kavalon
+  
+  </title>
+  
+  
+  <link href="atom.xml" rel="alternate" title="kavalon" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  <script src="asset/highlightjs/highlight.pack.js"></script>
+  <link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+  function before_search(){
+    var searchVal = 'site:klovelovely.github.io ' + document.getElementById('search_input').value;
+    document.getElementById('search_q').value = searchVal;
+    return true;
+  }
+</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+
+  <section class="top-bar-section">
+  <div class="row">
+      <div style="position: relative;width:100%;"><div style="position: absolute; width:100%;">
+        <ul id="main-menu" class="left">
+        
+        <li id=""><a target="self" href="index.html">Home</a></li>
+        
+        <li id=""><a target="_self" href="archives.html">Archives</a></li>
+        
+        </ul>
+
+        <ul class="right" id="search-wrap">
+          <li>
+<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+    <input type="hidden" id="search_q" name="q" value="" />
+    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+</form>
+</li>
+          </ul>
+      </div></div>
+  </div>
+  </section>
+
+</nav>
+
+        <nav class="tab-bar show-for-small">
+  <a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+    <span> &nbsp; kavalon</span>
+  </a>
+</nav>
+
+<aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+       
+       <li><a href="index.html">HOME</a></li>
+    <li><a href="archives.html">Archives</a></li>
+    <li><a href="about.html">ABOUT</a></li>
+
+    <li><label>Categories</label></li>
+
+        
+            <li><a href="memo.html">memo</a></li>
+        
+            <li><a href="tech.html">tech</a></li>
+         
+
+      </ul>
+    </aside>
+
+<a class="exit-off-canvas" href="#"></a>
+
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+  $(function(){
+    $('#menu_item_index').addClass('is_active');
+  });
+</script>
+<div class="row">
+  <div class="large-8 medium-8 columns">
+      <div class="markdown-body article-wrap">
+       <div class="article">
+          
+          <h1>使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2017/4/11</span>
+
+          <span>posted in&nbsp;</span> 
+          
+              <span class="posted-in"><a href='tech.html'>tech</a></span>
+           
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <h3 id="toc_0">在命令行中执行 npm install 时下载 Phantomjs 依赖包失败的问题</h3>
+
+<p>shadowsocks 已经开了, 但是这个文件通过命令行依然无法访问, 可以在命令行里试着跑一下这个:</p>
+
+<pre><code class="language-bash">wget https://github.com/Medium/phantomjs/releases/download/v2.1.1//phantomjs-2.1.1-macosx.zip
+</code></pre>
+
+<p>如果提示操作超时(类似下面的提示), 就可以证明是这个问题了.</p>
+
+<blockquote>
+<p>Connecting to github-cloud.s3.amazonaws.com|54.231.49.96|:443... failed: Operation timed out.</p>
+</blockquote>
+
+<p>由于 shadowsocks 是基于 socket 的协议, 无法代理更底层的 TCP/IP, 所以需要一个工具可以让 TCP/IP 也走 socket5.</p>
+
+<p>之前一直用的是 proxychains, 但是每次执行都需要在单个命令前加前缀, 虽然可以 alias 成更短的 ps, 但 npm install 安装依赖的话还是非常不方便.</p>
+
+<p>后来找到了这个 <a href="https://www.proxifier.com">Proxifier</a></p>
+
+<p>这个工具也有 <a href="">Windows 版</a></p>
+
+<p>神秘代码我神马都布吉岛(雾 <code>P427L-9Y552-5433E-8DSR3-58Z68</code></p>
+
+<p>个人感觉还是非常好用的, 推荐使用 Windows 和 Mac 的同学试一下~</p>
+
+<p>打开后配置好本地 IP 127.0.0.1 和本地端口 1080 type 为 socks5, 就可以使用了.</p>
+
+<p>优点:</p>
+
+<ul>
+<li>自定义每个应用设置是否proxy</li>
+<li>自定义host是否proxy</li>
+<li>不影响浏览器是否全局</li>
+<li>查看当前连接</li>
+</ul>
+
+<p>另外, 使用 linux 的同学可以尝试下 redproxy .</p>
+
+<p>来源: <a href="http://sxiaojian.com/2016/07/04/terminal-shadowsocks/">http://sxiaojian.com/2016/07/04/terminal-shadowsocks/</a></p>
+
+<h3 id="toc_1">Ruby 推荐安装方式</h3>
+
+<ol>
+<li>安装 <a href="https://ruby-china.org/wiki/install_ruby_guide">Ruby(rvm)</a></li>
+<li>然后安装 sass compass - gem install sass compass</li>
+</ol>
+
+<h3 id="toc_2">Node 安装方式</h3>
+
+<ol>
+<li><a href="http://nodejs.org">node(nvm)</a></li>
+<li>然后升级 node 自带的 npm 到最新版本 <code>npm install --global npm@latest</code></li>
+</ol>
+
+<h3 id="toc_3"><a href="http://yeoman.io/codelab/setup.html">Yeoman</a> 相关配置</h3>
+
+<pre><code>* npm install grunt-cli gulp-cli Yeoman -g
+</code></pre>
+
+<hr/>
+
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14910675180431.html" 
+          title="Next Post: 万圣 (请注意, 可能会造成不适)">万圣 (请注意, 可能会造成不适) &raquo;</a>
+      
+      </p>
+        </div>
+      </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          <!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=1536079"></script>
+<!-- UY END -->
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>kavalon</h1>
+                <div class="site-des">kavalon's</div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+             
+
+              <div id="site-categories" class="side-item ">
+                <div class="side-header">
+                  <h2>Categories</h2>
+                </div>
+                <div class="side-content">
+
+      	<p class="cat-list">
+        
+            <a href="memo.html"><strong>memo</strong></a>
+        
+            <a href="tech.html"><strong>tech</strong></a>
+         
+        </p>
+
+
+                </div>
+              </div>
+
+              <div id="site-categories" class="side-item">
+                <div class="side-header">
+                  <h2>Recent Posts</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="14919047125523.html">使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910675180431.html">万圣 (请注意, 可能会造成不适)</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910672431139.html">那你很棒棒哦</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910668990836.html">我有菊麻麦皮不知当桨不当桨</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14910664600836.html">无题3</a>
+			      </li>
+		     
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		  
+		      
+		   
+		  		</ul>
+                </div>
+              </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2015
+Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a>,&nbsp; 
+Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[kavalon]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2017-03-28T17:53:01+08:00</updated>
+  <updated>2017-05-03T10:10:08+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,36 +13,293 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
-    <title type="html"><![CDATA[Technical Otakus Save The World]]></title>
-    <link href="http://klovelovely.github.io/14768687916441.html"/>
-    <updated>2016-10-19T17:19:51+08:00</updated>
-    <id>http://klovelovely.github.io/14768687916441.html</id>
+    <title type="html"><![CDATA[使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks]]></title>
+    <link href="http://klovelovely.github.io/14919047125523.html"/>
+    <updated>2017-04-11T17:58:32+08:00</updated>
+    <id>http://klovelovely.github.io/14919047125523.html</id>
     <content type="html"><![CDATA[
-<h3 id="toc_0">活动(漫展):</h3>
+<h3 id="toc_0">在命令行中执行 npm install 时下载 Phantomjs 依赖包失败的问题</h3>
 
-<p><strong><a href="http://nyato.com/manzhan/5592/">2016北京梦次元万圣节专场——不给糖就捣乱</a> 2016-10-30 10:00-17:00</strong><br/>
-<a href="http://nyato.com/manzhan/5938/">10月30日梦次元万圣节狂欢夜+九囍丸子周年祭大公演</a> 2016-10-30 17:00-21:00<br/>
-<strong><a href="http://nyato.com/manzhan/3910/">第15届M.Y.Comic动漫游戏节（MYC15）</a> 2016-11-06 10:00-17:00</strong></p>
+<p>shadowsocks 已经开了, 但是这个文件通过命令行依然无法访问, 可以在命令行里试着跑一下这个:</p>
 
-<h3 id="toc_1">音乐</h3>
+<pre><code class="language-bash">wget https://github.com/Medium/phantomjs/releases/download/v2.1.1//phantomjs-2.1.1-macosx.zip
+</code></pre>
 
-<p><a href="http://nyato.com/manzhan/5606/">2016北京第三届COSPACE帝都大音乐祭 二次元音乐会</a> 2016-11-19 14:00-19:00<br/>
-<strong><a href="http://nyato.com/manzhan/5605/">初音未来2016中国演唱会北京站</a> 2016-12-10 10:00 - 2016-12-11 17:00</strong></p>
+<p>如果提示操作超时(类似下面的提示), 就可以证明是这个问题了.</p>
 
-<h3 id="toc_2">展会</h3>
+<blockquote>
+<p>Connecting to github-cloud.s3.amazonaws.com|54.231.49.96|:443... failed: Operation timed out.</p>
+</blockquote>
 
-<p><a href="http://nyato.com/manzhan/4051/">第三届中国北京国际动漫产业展览会</a> 2016-11-23 10:00 - 2016-11-25 17:00</p>
+<p>由于 shadowsocks 是基于 socket 的协议, 无法代理更底层的 TCP/IP, 所以需要一个工具可以让 TCP/IP 也走 socket5.</p>
 
-<h3 id="toc_3">电影</h3>
+<p>之前一直用的是 proxychains, 但是每次执行都需要在单个命令前加前缀, 虽然可以 alias 成更短的 ps, 但 npm install 安装依赖的话还是非常不方便.</p>
 
-<p><strong><a href="https://movie.douban.com/subject/26683290/">你的名字</a> 2016-11(中国大陆) / 2016-08-26(日本) <a href="http://www.acgdoge.net/archives/12028">参考信息</a></strong></p>
+<p>后来找到了这个 <a href="https://www.proxifier.com">Proxifier</a></p>
 
-<h3 id="toc_4"><a href="https://www.zhihu.com/question/34010758/answer/91600596">女仆咖啡厅</a></h3>
+<p>这个工具也有 <a href="">Windows 版</a></p>
 
-<p><strong><a href="http://www.dianping.com/shop/4539269">屋根里女仆主题餐厅(亮马桥店)</a></strong><br/>
-<strong><a href="http://www.dianping.com/shop/18486513">星萌女仆主题咖啡厅</a></strong><br/>
-<a href="http://www.dianping.com/shop/20693484">卯月女仆主题餐厅</a> <a href="http://www.acgdoge.net/archives/1641">参考信息</a><br/>
-<a href="https://zh.moegirl.org/%E5%A5%B3%E4%BB%86%E5%92%96%E5%95%A1%E5%8E%85">其他城市</a></p>
+<p>神秘代码我神马都布吉岛(雾 <code>P427L-9Y552-5433E-8DSR3-58Z68</code></p>
+
+<p>个人感觉还是非常好用的, 推荐使用 Windows 和 Mac 的同学试一下~</p>
+
+<p>打开后配置好本地 IP 127.0.0.1 和本地端口 1080 type 为 socks5, 就可以使用了.</p>
+
+<p>优点:</p>
+
+<ul>
+<li>自定义每个应用设置是否proxy</li>
+<li>自定义host是否proxy</li>
+<li>不影响浏览器是否全局</li>
+<li>查看当前连接</li>
+</ul>
+
+<p>另外, 使用 linux 的同学可以尝试下 redproxy .</p>
+
+<p>来源: <a href="http://sxiaojian.com/2016/07/04/terminal-shadowsocks/">http://sxiaojian.com/2016/07/04/terminal-shadowsocks/</a></p>
+
+<h3 id="toc_1">Ruby 推荐安装方式</h3>
+
+<ol>
+<li>安装 <a href="https://ruby-china.org/wiki/install_ruby_guide">Ruby(rvm)</a></li>
+<li>然后安装 sass compass - gem install sass compass</li>
+</ol>
+
+<h3 id="toc_2">Node 安装方式</h3>
+
+<ol>
+<li><a href="http://nodejs.org">node(nvm)</a></li>
+<li>然后升级 node 自带的 npm 到最新版本 <code>npm install --global npm@latest</code></li>
+</ol>
+
+<h3 id="toc_3"><a href="http://yeoman.io/codelab/setup.html">Yeoman</a> 相关配置</h3>
+
+<pre><code>* npm install grunt-cli gulp-cli Yeoman -g
+</code></pre>
+
+<hr/>
+
+<blockquote>
+<p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[万圣 (请注意, 可能会造成不适)]]></title>
+    <link href="http://klovelovely.github.io/14910675180431.html"/>
+    <updated>2017-04-02T01:25:18+08:00</updated>
+    <id>http://klovelovely.github.io/14910675180431.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8401.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8401"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8421.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8421"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8456.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8456"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8556.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8556"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8576.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8576"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[那你很棒棒哦]]></title>
+    <link href="http://klovelovely.github.io/14910672431139.html"/>
+    <updated>2017-04-02T01:20:43+08:00</updated>
+    <id>http://klovelovely.github.io/14910672431139.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160727_001958.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160727_001958"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[我有菊麻麦皮不知当桨不当桨]]></title>
+    <link href="http://klovelovely.github.io/14910668990836.html"/>
+    <updated>2017-04-02T01:14:59+08:00</updated>
+    <id>http://klovelovely.github.io/14910668990836.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7954.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7954"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7956.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7956"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8089.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8089"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8102.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8102"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8104.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8104"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8107.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8107"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8118.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8118"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[无题3]]></title>
+    <link href="http://klovelovely.github.io/14910664600836.html"/>
+    <updated>2017-04-02T01:07:40+08:00</updated>
+    <id>http://klovelovely.github.io/14910664600836.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7866.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7866"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7870.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7870"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7871.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7871"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7884.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7884"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7885.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7885"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7886.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7886"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[姑姑]]></title>
+    <link href="http://klovelovely.github.io/14910662955296.html"/>
+    <updated>2017-04-02T01:04:55+08:00</updated>
+    <id>http://klovelovely.github.io/14910662955296.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7510.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7510"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7514.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7514"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7519.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7519"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7530.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7530"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7533.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7533"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7543.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7543"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7547.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7547"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7569.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7569"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7572.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7572"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7580.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7580"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7600.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7600"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160529_223619.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160529_223619"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[无题2]]></title>
+    <link href="http://klovelovely.github.io/14910659190396.html"/>
+    <updated>2017-04-02T00:58:39+08:00</updated>
+    <id>http://klovelovely.github.io/14910659190396.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7474.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7474"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7476.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7476"/></p>
+
+<hr/>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[团结湖]]></title>
+    <link href="http://klovelovely.github.io/14910656279417.html"/>
+    <updated>2017-04-02T00:53:47+08:00</updated>
+    <id>http://klovelovely.github.io/14910656279417.html</id>
+    <content type="html"><![CDATA[
+<p>阳光正好.</p>
+
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7396.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7396"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7416.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7416"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7418.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7418"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7449.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7449"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[TV 档 - 练习]]></title>
+    <link href="http://klovelovely.github.io/14910651852531.html"/>
+    <updated>2017-04-02T00:46:25+08:00</updated>
+    <id>http://klovelovely.github.io/14910651852531.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7383.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7383"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7387.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7387"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7389.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7389"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7390.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7390"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[手机2]]></title>
+    <link href="http://klovelovely.github.io/14910651651487.html"/>
+    <updated>2017-04-02T00:46:05+08:00</updated>
+    <id>http://klovelovely.github.io/14910651651487.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160524_120203_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160524_120203_HD"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160523_190859_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160523_190859_HD"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160523_195744_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160523_195744_HD"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[我的王者室友]]></title>
+    <link href="http://klovelovely.github.io/14910650283646.html"/>
+    <updated>2017-04-02T00:43:48+08:00</updated>
+    <id>http://klovelovely.github.io/14910650283646.html</id>
+    <content type="html"><![CDATA[
+<p>@草一样的大神 @过气男主播</p>
+
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7219.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7219"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7221.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7221"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[无题]]></title>
+    <link href="http://klovelovely.github.io/14910645854449.html"/>
+    <updated>2017-04-02T00:36:25+08:00</updated>
+    <id>http://klovelovely.github.io/14910645854449.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6576-20160403-110905-%E5%85%89%E5%9C%88%E4%BC%98%E5%85%88-50%20mm-1-2500%20%E7%A7%92%20-f%20-%201.8--ISO%20100.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6576-20160403-110905-光圈优先-50 mm-1-2500 秒 -f - 1.8--ISO 100"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6581-20160403-113537-%E5%85%89%E5%9C%88%E4%BC%98%E5%85%88-50%20mm-1-4000%20%E7%A7%92%20-f%20-%201.8--ISO%20100.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6581-20160403-113537-光圈优先-50 mm-1-4000 秒 -f - 1.8--ISO 100"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6609-20160403-162821-%E5%85%89%E5%9C%88%E4%BC%98%E5%85%88-50%20mm-1-2500%20%E7%A7%92%20-f%20-%201.8--ISO%20100.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6609-20160403-162821-光圈优先-50 mm-1-2500 秒 -f - 1.8--ISO 100"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6613-20160403-163040-%E5%85%89%E5%9C%88%E4%BC%98%E5%85%88-50%20mm-1-4000%20%E7%A7%92%20-f%20-%201.8--ISO%20100.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6613-20160403-163040-光圈优先-50 mm-1-4000 秒 -f - 1.8--ISO 100"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6694-20160403-181003-%E5%85%89%E5%9C%88%E4%BC%98%E5%85%88-50%20mm-1-80%20%E7%A7%92%20-f%20-%201.8--ISO%20160.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6694-20160403-181003-光圈优先-50 mm-1-80 秒 -f - 1.8--ISO 160"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6704-20160403-182052-%E5%85%89%E5%9C%88%E4%BC%98%E5%85%88-50%20mm-1-250%20%E7%A7%92%20-f%20-%201.8--ISO%20100.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6704-20160403-182052-光圈优先-50 mm-1-250 秒 -f - 1.8--ISO 100"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6736-20160403-183201-%E5%85%89%E5%9C%88%E4%BC%98%E5%85%88-50%20mm-1-640%20%E7%A7%92%20-f%20-%201.8--ISO%20100.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6736-20160403-183201-光圈优先-50 mm-1-640 秒 -f - 1.8--ISO 100"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_6798-20160403-190233--18%20mm-1-30%20%E7%A7%92%20-f%20-%203.5--ISO%20800.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_6798-20160403-190233--18 mm-1-30 秒 -f - 3.5--ISO 800"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[手机]]></title>
+    <link href="http://klovelovely.github.io/14910643528023.html"/>
+    <updated>2017-04-02T00:32:32+08:00</updated>
+    <id>http://klovelovely.github.io/14910643528023.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160327_173411.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160327_173411"/></p>
+
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160327_173318.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160327_173318"/></p>
+
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160327_174158.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160327_174158"/></p>
+
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160327_180227_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160327_180227_HD"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[地狱猎犬]]></title>
+    <link href="http://klovelovely.github.io/14910635056792.html"/>
+    <updated>2017-04-02T00:18:25+08:00</updated>
+    <id>http://klovelovely.github.io/14910635056792.html</id>
+    <content type="html"><![CDATA[
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/1456379095008.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="1456379095008"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/1456380353095.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="1456380353095"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/1456502197427+-301466088.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="1456502197427+-301466088"/><br/>
+<img src="http://oajzs3iqp.bkt.clouddn.com/1456502203177+-509477075.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="1456502203177+-509477075"/></p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[从魔都到帝都]]></title>
+    <link href="http://klovelovely.github.io/14910632683408.html"/>
+    <updated>2017-04-02T00:14:28+08:00</updated>
+    <id>http://klovelovely.github.io/14910632683408.html</id>
+    <content type="html"><![CDATA[
+<p>到底是因为什么来的? 大概是忘了</p>
+
+<h2 id="toc_0"><img src="http://oajzs3iqp.bkt.clouddn.com/IMGP1273.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMGP1273"/></h2>
+
+<h2 id="toc_1"><img src="http://oajzs3iqp.bkt.clouddn.com/IMGP1291.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMGP1291"/></h2>
+
+<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMGP1293.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMGP1293"/></p>
 
 ]]></content>
   </entry>
