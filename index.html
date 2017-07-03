@@ -79,6 +79,8 @@
             <li><a href="memo.html">memo</a></li>
         
             <li><a href="tech.html">tech</a></li>
+        
+            <li><a href="macOS.html">macOS</a></li>
          
 
       </ul>
@@ -100,6 +102,229 @@
 	<div class="large-8 medium-8 columns">
 		<div class="markdown-body home-categories">
 		
+			<div class="article">
+                <a class="clearlink" href="14981186463825.html">
+                
+                  <h1>macOS 下 Charles 设置移动端代理遇到的坑 - shadowsocks</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>Charles 设置移动端抓包没有什么困难的, 大部分的问题基本都搜得到, 但是最近遇到了一个少见但是对于经常手机开着 shadowsocks 之类科学上网 App 的却很难排查的问题, 因为这个坑浪费了自己1个多小时, 所以在这里记一下备忘.</p>
+
+<p>大概的症状就是, 所有的配置都是之前一直在用的配置所以绝对没有问题, 然后如果手机配置正确, 在配置好代理的时候, Charles 是会弹窗提示新设备连接, 是否允许的. 但是这次在自己手机端配置好代理之后, Charles 却一直没有任何反应. 是的, 没有任何反应... 于是就踏上了没有任何调试信息调试工具辅助的 debug 之路(</p>
+
+<p>总结出来就是一句话:</p>
+
+<p>使用 Charles 设置移动端抓包的时候, 手机记得一定要关闭 shadowsocks 代理, 就算是规则代理也不行.</p>
+
+<p>之前一直以为 shadowsocks 的规则代理只会对规则内列表起作用, 所以这次设置 Charles 就没有考虑到这方面...</p>
+
+<p>所以基于这样的实际情况, 推测 ss 开启的情况下, 首先会监听所有 socket 请求, 然后如果开启了基于规则的代理策略, 则会把这些请求和代理规则进行匹配, 如果匹配上就会转到代理服务器, 如果匹配不上则会以自己的身份直接转发给对应的地址(从Android系统设置里的耗电和网络流量排行中也可以看得出来), 虽然看起来没有太大区别, 但是</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/6/22</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='macOS.html'>macOS</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14966456619747.html">
+                
+                  <h1>Mac下终端常用命令</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><strong>使用时注意空格和区分大小写</strong></p>
+
+<p>零、最基本常用命令<br/>
+cd<br/>
+cd  切换目录，比如 cd ABC ，切换到ABC目录下<br/>
+cd .. 切换到上一层目录</p>
+
+<p>ls<br/>
+ls 显示当前目录下的所有文件<br/>
+ls -ah 显示当前目录下所有文件，包括隐藏文件</p>
+
+<p>pwd<br/>
+pwd 显示当前目录路径</p>
+
+<p>mkdir <br/>
+mkdir 创建空目录，目录存在则报错，比如 mkdir ABC， 创建ABC目录</p>
+
+<p>rm<br/>
+rm  删除文件或空目录，比如 rm abc.txt <br/>
+rm -r 删除目录，包括目录的所有文件和子目录</p>
+
+<p>clear <br/>
+clear  清屏</p>
+
+<p>一、Mac App Store 下载失败<br/>
+终端输入：defaults write com.apple.appstore ShowDebugMenu -bool true</p>
+
+<p>二、显示和隐藏文件<br/>
+显示：defaults write com.apple.finder AppleShowAllFiles -bool true<br/>
+隐藏：defaults write com.apple.finder AppleShowAllFiles -bool false<br/>
+终端输入后，需重新启动Finder<br/>
+点左上角苹果logo  &gt;&gt; 强制退出  &gt;&gt; 选中Finder  &gt;&gt; 点“重新开启”</p>
+
+<p>三、路由表的输出信息<br/>
+终端输入：netstat -nr</p>
+
+<p>四、配置环境变量<br/>
+Mac 环境变量有两种，一种是全局的，公用的，针对系统所有用户；另一种是用户级的，只对当前用户有效。</p>
+
+<p>/etc/profile 全局配置文件，所有用户登录时读取此文件，一般不修改。<br/>
+使用时需使用 sudo 以Root权限运行（慎用）</p>
+
+<p>/etc/bashrc 全局配置文件，运行bash shell时读取此文件，一般在这里修改系统级环境变量。</p>
+
+<p>~/.bash_profile 用户级配置文件，用户登录时，该文件仅执行一次。一般在这里修改用户级环境变量。<br/>
+可使用 vi 命令进行编辑。</p>
+
+<p>五、vi 命令<br/>
+这里仅介绍一些简单命令。具体使用可以参考这里<br/>
+vi fileName  用于打开/创建文件，并进入vi 编辑器。此时为指令模式。</p>
+
+<p>模式：分为指令模式和输入模式，网上还有分为命令模式、插入模式和底行模式的。<br/>
+指令模式<br/>
+此模式下可以移动光标，删除字符等。<br/>
+1. 进入输入模式的方法如下：<br/>
+增加（append）<br/>
+按 “a” 键  从光标所在位置后面新增内容。<br/>
+按 “A” 键  从光标所在行最后面新增内容。<br/>
+插入（insert）<br/>
+按 “i” 键  在光标所在位置前面插入内容，光标后面内容随之后退。<br/>
+按 “I” 键  在光标所在行第一个非空白字符前插入内容。<br/>
+开始（open）<br/>
+按 “o” 键  在光标所在行下面新建一行<br/>
+按 “O” 键  在光标所在行上面新建一行<br/>
+2. 退出vi编辑器(冒号在前)<br/>
+:x  退出并保存。<br/>
+:wq 退出并保存。<br/>
+:w 仅保存。<br/>
+:w filename 保存为指定的文件，可用于另存为。<br/>
+:q 仅退出，有修改内容时会提示要保存。<br/>
+:q! 强制不保存退出。</p>
+
+<p>输入模式<br/>
+此模式下可以增加、修改内容。<br/>
+按 “esc” 键返回指令模式。</p>
+
+<p>六、sudo 命令<br/>
+sudo 命令前缀，提升权限，类似于使用root权限操作命令。可以用于一些需要比当前用户更高权限才能操作的命令。<br/>
+例如：修改hosts文件<br/>
+sudo vi /etc/hosts</p>
+
+<p>七、网络设置<br/>
+1. 列出网卡<br/>
+终端输入：networksetup -listallnetworkservices</p>
+
+<ol>
+<li><p>关闭 ipv6<br/>
+终端输入：networksetup -setv6off &quot;网卡名称&quot; <br/>
+比如关闭以太网ipv6 : networksetup -setv6off Ethernet</p></li>
+<li><p>设置IP地址<br/>
+终端输入：networksetup -setmanual &quot;网卡名称&quot; 192.168.31.2 255.255.255.0 192.168.1.1</p></li>
+</ol>
+
+<p>八、登录Linux服务器<br/>
+终端输入：ssh user@hostname<br/>
+user = Linux 服务器管理员账号<br/>
+hostname = Linux 服务器IP</p>
+
+<p>九、设置Dock仅显示当前打开的应用图标<br/>
+终端输入：defaults write com.apple.dock static-only -boolean true; killall Dock<br/>
+恢复：defaults delete com.apple.dock static-only; killall Dock</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/6/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='macOS.html'>macOS</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="14966442779567.html">
+                
+                  <h1>Mac 关闭 IPV6</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>公司的内网调试, 需要设置一个固定的 IPV4 地址, 设置完保存的时候, 提示: &quot;无效的服务器地址BasicIPv6ValidationError&quot;, 这边稍微搜了下, 没有什么太直接的解决方法, 所以在这里记录一下备忘.</p>
+
+<p><strong>先关闭IPv6，然后设置IPv4，再重新开启IPv6</strong></p>
+
+<pre><code class="language-bash">networksetup -setv6off &quot;Ethernet&quot;
+</code></pre>
+
+<p>这里的 <code>Ethernet</code> 是你要关闭 IPV6 的网卡服务名称, 也就是你在 Mac 设置 -&gt; 网络面板左侧的连接方式名称. 在命令行中输入时一定要使用英文的形式, 比如 &quot;Thunderbolt 以太网&quot; 在命令行中就需要输入 </p>
+
+<pre><code class="language-bash">networksetup -setv6off &quot;Thunderbolt Ethernet&quot;
+</code></pre>
+
+<p><img src="media/14966442779567/14966446646428.jpg" alt="" style="width:668px;"/></p>
+
+<p>执行成功之后再次查看就会发现 IPV6 已经自动关闭了.</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/6/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='macOS.html'>macOS</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
 			<div class="article">
                 <a class="clearlink" href="14919047125523.html">
                 
@@ -233,116 +458,6 @@
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="14910672431139.html">
-                
-                  <h1>那你很棒棒哦</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160727_001958.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160727_001958"/></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/4/2</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14910668990836.html">
-                
-                  <h1>我有菊麻麦皮不知当桨不当桨</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7954.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7954"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7956.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7956"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8089.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8089"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8102.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8102"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8104.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8104"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8107.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8107"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_8118.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_8118"/></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/4/2</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="14910664600836.html">
-                
-                  <h1>无题3</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7866.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7866"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7870.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7870"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7871.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7871"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7884.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7884"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7885.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7885"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7886.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7886"/></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/4/2</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -398,6 +513,8 @@
             <a href="memo.html"><strong>memo</strong></a>
         
             <a href="tech.html"><strong>tech</strong></a>
+        
+            <a href="macOS.html"><strong>macOS</strong></a>
          
         </p>
 
@@ -414,6 +531,24 @@
 	      
 		      
 			      <li class="post">
+			        <a href="14981186463825.html">macOS 下 Charles 设置移动端代理遇到的坑 - shadowsocks</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14966456619747.html">Mac下终端常用命令</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14966442779567.html">Mac 关闭 IPV6</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14919047125523.html">使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks</a>
 			      </li>
 		     
@@ -425,22 +560,10 @@
 		     
 		  
 		      
-			      <li class="post">
-			        <a href="14910672431139.html">那你很棒棒哦</a>
-			      </li>
-		     
 		  
 		      
-			      <li class="post">
-			        <a href="14910668990836.html">我有菊麻麦皮不知当桨不当桨</a>
-			      </li>
-		     
 		  
 		      
-			      <li class="post">
-			        <a href="14910664600836.html">无题3</a>
-			      </li>
-		     
 		  
 		      
 		  
