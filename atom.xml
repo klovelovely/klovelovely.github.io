@@ -4,7 +4,7 @@
   <title><![CDATA[kavalon]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2017-05-03T10:55:38+08:00</updated>
+  <updated>2017-07-03T18:54:23+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -39,44 +39,19 @@
     <updated>2017-06-05T14:54:21+08:00</updated>
     <id>http://klovelovely.github.io/14966456619747.html</id>
     <content type="html"><![CDATA[
-<p><strong>使用时注意空格和区分大小写</strong></p>
-
-<p>零、最基本常用命令<br/>
-cd<br/>
-cd  切换目录，比如 cd ABC ，切换到ABC目录下<br/>
-cd .. 切换到上一层目录</p>
-
-<p>ls<br/>
-ls 显示当前目录下的所有文件<br/>
-ls -ah 显示当前目录下所有文件，包括隐藏文件</p>
-
-<p>pwd<br/>
-pwd 显示当前目录路径</p>
-
-<p>mkdir <br/>
-mkdir 创建空目录，目录存在则报错，比如 mkdir ABC， 创建ABC目录</p>
-
-<p>rm<br/>
-rm  删除文件或空目录，比如 rm abc.txt <br/>
-rm -r 删除目录，包括目录的所有文件和子目录</p>
-
-<p>clear <br/>
-clear  清屏</p>
-
-<p>一、Mac App Store 下载失败<br/>
-终端输入：defaults write com.apple.appstore ShowDebugMenu -bool true</p>
-
-<p>二、显示和隐藏文件<br/>
+<ul>
+<li><p>Mac App Store 下载失败<br/>
+终端输入：defaults write com.apple.appstore ShowDebugMenu -bool true</p></li>
+<li><p>显示和隐藏文件<br/>
 显示：defaults write com.apple.finder AppleShowAllFiles -bool true<br/>
 隐藏：defaults write com.apple.finder AppleShowAllFiles -bool false<br/>
 终端输入后，需重新启动Finder<br/>
-点左上角苹果logo  &gt;&gt; 强制退出  &gt;&gt; 选中Finder  &gt;&gt; 点“重新开启”</p>
-
-<p>三、路由表的输出信息<br/>
-终端输入：netstat -nr</p>
-
-<p>四、配置环境变量<br/>
-Mac 环境变量有两种，一种是全局的，公用的，针对系统所有用户；另一种是用户级的，只对当前用户有效。</p>
+点左上角苹果logo  &gt;&gt; 强制退出  &gt;&gt; 选中Finder  &gt;&gt; 点“重新开启”</p></li>
+<li><p>路由表的输出信息<br/>
+终端输入：netstat -nr</p></li>
+<li><p>配置环境变量<br/>
+Mac 环境变量有两种，一种是全局的，公用的，针对系统所有用户；另一种是用户级的，只对当前用户有效。</p></li>
+</ul>
 
 <p>/etc/profile 全局配置文件，所有用户登录时读取此文件，一般不修改。<br/>
 使用时需使用 sudo 以Root权限运行（慎用）</p>
@@ -86,60 +61,46 @@ Mac 环境变量有两种，一种是全局的，公用的，针对系统所有�
 <p>~/.bash_profile 用户级配置文件，用户登录时，该文件仅执行一次。一般在这里修改用户级环境变量。<br/>
 可使用 vi 命令进行编辑。</p>
 
-<p>五、vi 命令<br/>
-这里仅介绍一些简单命令。具体使用可以参考这里<br/>
-vi fileName  用于打开/创建文件，并进入vi 编辑器。此时为指令模式。</p>
-
-<p>模式：分为指令模式和输入模式，网上还有分为命令模式、插入模式和底行模式的。<br/>
-指令模式<br/>
-此模式下可以移动光标，删除字符等。<br/>
-1. 进入输入模式的方法如下：<br/>
-增加（append）<br/>
-按 “a” 键  从光标所在位置后面新增内容。<br/>
-按 “A” 键  从光标所在行最后面新增内容。<br/>
-插入（insert）<br/>
-按 “i” 键  在光标所在位置前面插入内容，光标后面内容随之后退。<br/>
-按 “I” 键  在光标所在行第一个非空白字符前插入内容。<br/>
-开始（open）<br/>
-按 “o” 键  在光标所在行下面新建一行<br/>
-按 “O” 键  在光标所在行上面新建一行<br/>
-2. 退出vi编辑器(冒号在前)<br/>
+<ul>
+<li>进入输入模式的方法如下：
+增加（append）
+按 “a” 键  从光标所在位置后面新增内容。
+按 “A” 键  从光标所在行最后面新增内容。
+插入（insert）
+按 “i” 键  在光标所在位置前面插入内容，光标后面内容随之后退。
+按 “I” 键  在光标所在行第一个非空白字符前插入内容。
+开始（open）
+按 “o” 键  在光标所在行下面新建一行
+按 “O” 键  在光标所在行上面新建一行</li>
+<li><p>退出vi编辑器(冒号在前)<br/>
 :x  退出并保存。<br/>
 :wq 退出并保存。<br/>
 :w 仅保存。<br/>
 :w filename 保存为指定的文件，可用于另存为。<br/>
 :q 仅退出，有修改内容时会提示要保存。<br/>
-:q! 强制不保存退出。</p>
-
-<p>输入模式<br/>
-此模式下可以增加、修改内容。<br/>
-按 “esc” 键返回指令模式。</p>
-
-<p>六、sudo 命令<br/>
-sudo 命令前缀，提升权限，类似于使用root权限操作命令。可以用于一些需要比当前用户更高权限才能操作的命令。<br/>
-例如：修改hosts文件<br/>
-sudo vi /etc/hosts</p>
-
-<p>七、网络设置<br/>
-1. 列出网卡<br/>
-终端输入：networksetup -listallnetworkservices</p>
+:q! 强制不保存退出。</p></li>
+<li><p>网络设置</p>
 
 <ol>
+<li><p>列出网卡<br/>
+终端输入：networksetup -listallnetworkservices</p></li>
 <li><p>关闭 ipv6<br/>
 终端输入：networksetup -setv6off &quot;网卡名称&quot; <br/>
 比如关闭以太网ipv6 : networksetup -setv6off Ethernet</p></li>
 <li><p>设置IP地址<br/>
 终端输入：networksetup -setmanual &quot;网卡名称&quot; 192.168.31.2 255.255.255.0 192.168.1.1</p></li>
-</ol>
-
-<p>八、登录Linux服务器<br/>
+</ol></li>
+<li><p>登录Linux服务器<br/>
 终端输入：ssh user@hostname<br/>
 user = Linux 服务器管理员账号<br/>
-hostname = Linux 服务器IP</p>
-
-<p>九、设置Dock仅显示当前打开的应用图标<br/>
+hostname = Linux 服务器IP</p></li>
+<li><p>设置Dock仅显示当前打开的应用图标<br/>
 终端输入：defaults write com.apple.dock static-only -boolean true; killall Dock<br/>
-恢复：defaults delete com.apple.dock static-only; killall Dock</p>
+恢复：defaults delete com.apple.dock static-only; killall Dock</p></li>
+<li><p>清除 dns 缓存<br/>
+终端中刷新DNS的discovoryutil命令在macOS 10.10.4中被移除，在macOS 10.12之后刷新DNS缓存的命令为：<br/>
+sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed</p></li>
+</ul>
 
 ]]></content>
   </entry>
