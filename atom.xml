@@ -4,7 +4,7 @@
   <title><![CDATA[kavalon]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2017-07-03T18:54:23+08:00</updated>
+  <updated>2017-07-13T18:10:53+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -45,8 +45,7 @@
 <li><p>显示和隐藏文件<br/>
 显示：defaults write com.apple.finder AppleShowAllFiles -bool true<br/>
 隐藏：defaults write com.apple.finder AppleShowAllFiles -bool false<br/>
-终端输入后，需重新启动Finder<br/>
-点左上角苹果logo  &gt;&gt; 强制退出  &gt;&gt; 选中Finder  &gt;&gt; 点“重新开启”</p></li>
+重新启动Finder</p></li>
 <li><p>路由表的输出信息<br/>
 终端输入：netstat -nr</p></li>
 <li><p>配置环境变量<br/>
@@ -90,10 +89,6 @@ Mac 环境变量有两种，一种是全局的，公用的，针对系统所有�
 <li><p>设置IP地址<br/>
 终端输入：networksetup -setmanual &quot;网卡名称&quot; 192.168.31.2 255.255.255.0 192.168.1.1</p></li>
 </ol></li>
-<li><p>登录Linux服务器<br/>
-终端输入：ssh user@hostname<br/>
-user = Linux 服务器管理员账号<br/>
-hostname = Linux 服务器IP</p></li>
 <li><p>设置Dock仅显示当前打开的应用图标<br/>
 终端输入：defaults write com.apple.dock static-only -boolean true; killall Dock<br/>
 恢复：defaults delete com.apple.dock static-only; killall Dock</p></li>
