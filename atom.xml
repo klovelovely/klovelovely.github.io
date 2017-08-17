@@ -4,7 +4,7 @@
   <title><![CDATA[kavalon]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2017-07-13T18:10:53+08:00</updated>
+  <updated>2017-07-17T14:31:17+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -13,22 +13,46 @@
   <generator uri="http://www.mweb.im/">MWeb</generator>
   
   <entry>
+    <title type="html"><![CDATA[微信小程序的一些坑]]></title>
+    <link href="http://klovelovely.github.io/15002839379080.html"/>
+    <updated>2017-07-17T17:32:17+08:00</updated>
+    <id>http://klovelovely.github.io/15002839379080.html</id>
+    <content type="html"><![CDATA[
+<p>es6 转 es5, 如果遇到不小心重复 export 的情况</p>
+
+<pre><code class="language-javascript">export {
+    foo,
+    bar,
+    foo
+}
+</code></pre>
+
+<p>转译过程不会报错, 但是最终生成的 js 似乎是变成了一个空文件, Network 请求正常, 没有 404, 但是控制台会报错 <code>Uncaught Error: module &quot;utils/API.js&quot; is not defined</code> ...</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[macOS 下 Charles 设置移动端代理遇到的坑 - shadowsocks]]></title>
     <link href="http://klovelovely.github.io/14981186463825.html"/>
     <updated>2017-06-22T16:04:06+08:00</updated>
     <id>http://klovelovely.github.io/14981186463825.html</id>
     <content type="html"><![CDATA[
-<p>Charles 设置移动端抓包没有什么困难的, 大部分的问题基本都搜得到, 但是最近遇到了一个少见但是对于经常手机开着 shadowsocks 之类科学上网 App 的却很难排查的问题, 因为这个坑浪费了自己1个多小时, 所以在这里记一下备忘.</p>
+<p>Charles 设置移动端抓包没有那么困难, 大部分的问题基本都搜得到, 不过最近遇到了一个比较奇怪的问题, 对于手机常开 shadowsocks 之类科学上网 App 的小伙伴可以注意一下, 因为被这个坑了1个多小时, 所以在这里记一下备忘.</p>
 
-<p>大概的症状就是, 所有的配置都是之前一直在用的配置所以绝对没有问题, 然后如果手机配置正确, 在配置好代理的时候, Charles 是会弹窗提示新设备连接, 是否允许的. 但是这次在自己手机端配置好代理之后, Charles 却一直没有任何反应. 是的, 没有任何反应... 于是就踏上了没有任何调试信息调试工具辅助的 debug 之路(</p>
+<p>按正常的情况: 如果手机配置正确, 在配置好代理的时候, Charles 是会弹窗提示 &quot;有新设备连接, 是否允许&quot; 的. </p>
+
+<p>Charles 所有的配置都是之前已经配好而且一直在用的所以电脑端配置有问题的可能性极小, 但这次在自己手机端配置好代理之后, Charles 却一直没有任何新设备连接提示. 是的, 没有任何提示... 于是就踏上了没有任何调试信息调试工具辅助的 debug 之路</p>
+
+<p>大概的 debug 过程: 同事的手机连接他自己的 Charles 没问题, 同事的这部手机连接我的 Charles 也没问题, 我的手机连接同事的 Charles 依然有问题, 所以基本可以确定是我自己手机的问题了. 因为我的手机(MIUI)之前 Root 并装了 Google 框架, 所以刚开始以为是 Google 框架的问题, 但是当我把 Google 所有服务全部卸载重启之后发现依然连不上的时候, 我发现问题并没有那么简单...</p>
 
 <p>总结出来就是一句话:</p>
 
-<p>使用 Charles 设置移动端抓包的时候, 手机记得一定要关闭 shadowsocks 代理, 就算是规则代理也不行.</p>
+<p><strong>使用 Charles 设置移动端抓包的时候, 手机记得一定要关闭 shadowsocks 之类的代理 App, 就算是规则代理也不行.</strong></p>
 
 <p>之前一直以为 shadowsocks 的规则代理只会对规则内列表起作用, 所以这次设置 Charles 就没有考虑到这方面...</p>
 
-<p>所以基于这样的实际情况, 推测 ss 开启的情况下, 首先会监听所有 socket 请求, 然后如果开启了基于规则的代理策略, 则会把这些请求和代理规则进行匹配, 如果匹配上就会转到代理服务器, 如果匹配不上则会以自己的身份直接转发给对应的地址(从Android系统设置里的耗电和网络流量排行中也可以看得出来), 虽然看起来没有太大区别, 但是</p>
+<p>所以基于这样的实际情况, 推测 ss 开启的情况下, 就算是开启基于规则的代理策略, 也会默认监听匹配所有 socket 请求, 如果匹配上就会转到代理服务器, 如果匹配不上则会以自己的身份直接转发给对应的地址(从Android系统设置里的耗电和网络流量排行中也可以看得出来), 估计就是因为 shadowsocks 对所有请求的代理导致 Charles 无法识别移动端的吧</p>
 
 ]]></content>
   </entry>
@@ -41,13 +65,13 @@
     <content type="html"><![CDATA[
 <ul>
 <li><p>Mac App Store 下载失败<br/>
-终端输入：defaults write com.apple.appstore ShowDebugMenu -bool true</p></li>
+终端输入：<code>defaults write com.apple.appstore ShowDebugMenu -bool true</code></p></li>
 <li><p>显示和隐藏文件<br/>
-显示：defaults write com.apple.finder AppleShowAllFiles -bool true<br/>
-隐藏：defaults write com.apple.finder AppleShowAllFiles -bool false<br/>
+显示：<code>defaults write com.apple.finder AppleShowAllFiles -bool true</code><br/>
+隐藏：<code>defaults write com.apple.finder AppleShowAllFiles -bool false</code><br/>
 重新启动Finder</p></li>
 <li><p>路由表的输出信息<br/>
-终端输入：netstat -nr</p></li>
+终端输入：<code>netstat -nr</code></p></li>
 <li><p>配置环境变量<br/>
 Mac 环境变量有两种，一种是全局的，公用的，针对系统所有用户；另一种是用户级的，只对当前用户有效。</p></li>
 </ul>
@@ -82,19 +106,22 @@ Mac 环境变量有两种，一种是全局的，公用的，针对系统所有�
 
 <ol>
 <li><p>列出网卡<br/>
-终端输入：networksetup -listallnetworkservices</p></li>
+终端输入：<code>networksetup -listallnetworkservices</code></p></li>
 <li><p>关闭 ipv6<br/>
-终端输入：networksetup -setv6off &quot;网卡名称&quot; <br/>
-比如关闭以太网ipv6 : networksetup -setv6off Ethernet</p></li>
+终端输入：<code>networksetup -setv6off &quot;网卡名称&quot;</code><br/>
+比如关闭以太网的IPV6: <code>networksetup -setv6off Ethernet</code><br/>
+关闭 Thunder Bolt 以太网的 IPV6: <code>networksetup -setv6on &quot;Thunderbolt Ethernet&quot;</code></p></li>
 <li><p>设置IP地址<br/>
-终端输入：networksetup -setmanual &quot;网卡名称&quot; 192.168.31.2 255.255.255.0 192.168.1.1</p></li>
+终端输入：<code>networksetup -setmanual &quot;网卡名称&quot; 192.168.31.2 255.255.255.0 192.168.1.1</code></p></li>
 </ol></li>
 <li><p>设置Dock仅显示当前打开的应用图标<br/>
-终端输入：defaults write com.apple.dock static-only -boolean true; killall Dock<br/>
-恢复：defaults delete com.apple.dock static-only; killall Dock</p></li>
+终端输入：<code>defaults write com.apple.dock static-only -boolean true; killall Dock</code><br/>
+恢复：<code>defaults delete com.apple.dock static-only; killall Dock</code></p></li>
 <li><p>清除 dns 缓存<br/>
 终端中刷新DNS的discovoryutil命令在macOS 10.10.4中被移除，在macOS 10.12之后刷新DNS缓存的命令为：<br/>
-sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed</p></li>
+<code><br/>
+sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
+</code></p></li>
 </ul>
 
 ]]></content>

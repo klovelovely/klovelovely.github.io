@@ -125,13 +125,13 @@
       <div class="article-content">
       <ul>
 <li><p>Mac App Store 下载失败<br/>
-终端输入：defaults write com.apple.appstore ShowDebugMenu -bool true</p></li>
+终端输入：<code>defaults write com.apple.appstore ShowDebugMenu -bool true</code></p></li>
 <li><p>显示和隐藏文件<br/>
-显示：defaults write com.apple.finder AppleShowAllFiles -bool true<br/>
-隐藏：defaults write com.apple.finder AppleShowAllFiles -bool false<br/>
+显示：<code>defaults write com.apple.finder AppleShowAllFiles -bool true</code><br/>
+隐藏：<code>defaults write com.apple.finder AppleShowAllFiles -bool false</code><br/>
 重新启动Finder</p></li>
 <li><p>路由表的输出信息<br/>
-终端输入：netstat -nr</p></li>
+终端输入：<code>netstat -nr</code></p></li>
 <li><p>配置环境变量<br/>
 Mac 环境变量有两种，一种是全局的，公用的，针对系统所有用户；另一种是用户级的，只对当前用户有效。</p></li>
 </ul>
@@ -166,19 +166,22 @@ Mac 环境变量有两种，一种是全局的，公用的，针对系统所有�
 
 <ol>
 <li><p>列出网卡<br/>
-终端输入：networksetup -listallnetworkservices</p></li>
+终端输入：<code>networksetup -listallnetworkservices</code></p></li>
 <li><p>关闭 ipv6<br/>
-终端输入：networksetup -setv6off &quot;网卡名称&quot; <br/>
-比如关闭以太网ipv6 : networksetup -setv6off Ethernet</p></li>
+终端输入：<code>networksetup -setv6off &quot;网卡名称&quot;</code><br/>
+比如关闭以太网的IPV6: <code>networksetup -setv6off Ethernet</code><br/>
+关闭 Thunder Bolt 以太网的 IPV6: <code>networksetup -setv6on &quot;Thunderbolt Ethernet&quot;</code></p></li>
 <li><p>设置IP地址<br/>
-终端输入：networksetup -setmanual &quot;网卡名称&quot; 192.168.31.2 255.255.255.0 192.168.1.1</p></li>
+终端输入：<code>networksetup -setmanual &quot;网卡名称&quot; 192.168.31.2 255.255.255.0 192.168.1.1</code></p></li>
 </ol></li>
 <li><p>设置Dock仅显示当前打开的应用图标<br/>
-终端输入：defaults write com.apple.dock static-only -boolean true; killall Dock<br/>
-恢复：defaults delete com.apple.dock static-only; killall Dock</p></li>
+终端输入：<code>defaults write com.apple.dock static-only -boolean true; killall Dock</code><br/>
+恢复：<code>defaults delete com.apple.dock static-only; killall Dock</code></p></li>
 <li><p>清除 dns 缓存<br/>
 终端中刷新DNS的discovoryutil命令在macOS 10.10.4中被移除，在macOS 10.12之后刷新DNS缓存的命令为：<br/>
-sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed</p></li>
+<code><br/>
+sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
+</code></p></li>
 </ul>
 
 
@@ -277,6 +280,12 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed</p></li
 	      
 		      
 			      <li class="post">
+			        <a href="15002839379080.html">微信小程序的一些坑</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="14981186463825.html">macOS 下 Charles 设置移动端代理遇到的坑 - shadowsocks</a>
 			      </li>
 		     
@@ -300,10 +309,6 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed</p></li
 		     
 		  
 		      
-			      <li class="post">
-			        <a href="14910675180431.html">万圣 (请注意, 可能会造成不适)</a>
-			      </li>
-		     
 		  
 		      
 		  
