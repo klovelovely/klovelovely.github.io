@@ -103,6 +103,50 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="15002839379080.html">
+                
+                  <h1>微信小程序的一些坑</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>es6 转 es5, 如果遇到不小心重复 export 的情况</p>
+
+<pre><code class="language-javascript">export {
+    foo,
+    bar,
+    foo
+}
+</code></pre>
+
+<p>转译过程不会报错, 但是最终生成的 js 似乎是变成了一个空文件, Network 请求正常, 没有 404, 但是控制台会报错 <code>Uncaught Error: module &quot;utils/API.js&quot; is not defined</code></p>
+
+<p>对于&quot;腾讯内部的 KPI 项目&quot;已经无力吐槽 🙂</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/7/17</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='tech.html'>tech</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="14919047125523.html">
                 
                   <h1>使用 yeoman angular-generator 作为脚手架时, 遇到的一些坑和 tricks</h1>

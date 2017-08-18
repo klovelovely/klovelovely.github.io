@@ -4,7 +4,7 @@
   <title><![CDATA[kavalon]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2017-08-17T09:41:58+08:00</updated>
+  <updated>2017-08-18T13:57:44+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
@@ -29,7 +29,7 @@
 
 <p>转译过程不会报错, 但是最终生成的 js 似乎是变成了一个空文件, Network 请求正常, 没有 404, 但是控制台会报错 <code>Uncaught Error: module &quot;utils/API.js&quot; is not defined</code></p>
 
-<p>对于&quot;腾讯内部的 KPI 项目&quot;已经无力吐槽</p>
+<p>对于&quot;腾讯内部的 KPI 项目&quot;已经无力吐槽 🙂</p>
 
 ]]></content>
   </entry>
