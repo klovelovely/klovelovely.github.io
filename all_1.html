@@ -81,6 +81,8 @@
             <li><a href="tech.html">tech</a></li>
         
             <li><a href="macOS.html">macOS</a></li>
+        
+            <li><a href="ycool.html">ycool</a></li>
          
 
       </ul>
@@ -102,6 +104,53 @@
 	<div class="large-8 medium-8 columns">
 		<div class="markdown-body home-categories">
 		
+			<div class="article">
+                <a class="clearlink" href="14966442779567.html">
+                
+                  <h1>Mac 关闭 IPV6</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>公司的内网调试, 需要设置一个固定的 IPV4 地址, 设置完保存的时候, 提示: &quot;无效的服务器地址BasicIPv6ValidationError&quot;, 这边稍微搜了下, 没有什么太直接的解决方法, 所以在这里记录一下备忘.</p>
+
+<p><strong>先关闭IPv6，然后设置IPv4，再重新开启IPv6</strong></p>
+
+<pre><code class="language-bash">networksetup -setv6off &quot;Ethernet&quot;
+</code></pre>
+
+<p>这里的 <code>Ethernet</code> 是你要关闭 IPV6 的网卡服务名称, 也就是你在 Mac 设置 -&gt; 网络面板左侧的连接方式名称. 在命令行中输入时一定要使用英文的形式, 比如 &quot;Thunderbolt 以太网&quot; 在命令行中就需要输入 </p>
+
+<pre><code class="language-bash">networksetup -setv6off &quot;Thunderbolt Ethernet&quot;
+</code></pre>
+
+<p><img src="media/14966442779567/14966446646428.jpg" alt="" style="width:668px;"/></p>
+
+<p>执行成功之后再次查看就会发现 IPV6 已经自动关闭了.</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/6/5</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='macOS.html'>macOS</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
 			<div class="article">
                 <a class="clearlink" href="14919047125523.html">
                 
@@ -307,44 +356,6 @@
                 </div>
               </div><!-- article -->
         
-			<div class="article">
-                <a class="clearlink" href="14910664600836.html">
-                
-                  <h1>无题3</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7866.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7866"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7870.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7870"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7871.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7871"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7884.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7884"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7885.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7885"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7886.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7886"/></p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/4/2</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
               
 
 
@@ -402,6 +413,8 @@
             <a href="tech.html"><strong>tech</strong></a>
         
             <a href="macOS.html"><strong>macOS</strong></a>
+        
+            <a href="ycool.html"><strong>ycool</strong></a>
          
         </p>
 
@@ -416,6 +429,12 @@
                 <div class="side-content">
                 <ul class="posts-list">
 	      
+		      
+			      <li class="post">
+			        <a href="15052867472023.html">手心里的时光</a>
+			      </li>
+		     
+		  
 		      
 			      <li class="post">
 			        <a href="15051249357927.html">国内优秀npm镜像推荐及使用</a>
@@ -437,12 +456,6 @@
 		      
 			      <li class="post">
 			        <a href="14966456619747.html">Mac下终端常用命令</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="14966442779567.html">Mac 关闭 IPV6</a>
 			      </li>
 		     
 		  
