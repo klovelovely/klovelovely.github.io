@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  手机2 - kavalon
+  iOS Universal Links 配置流程 - kavalon
   
   </title>
   
@@ -103,14 +103,14 @@
       <div class="markdown-body article-wrap">
        <div class="article">
           
-          <h1>手机2</h1>
+          <h1>iOS Universal Links 配置流程</h1>
      
         <div class="read-more clearfix">
-          <span class="date">2017/4/2</span>
+          <span class="date">2017/11/29</span>
 
           <span>posted in&nbsp;</span> 
           
-              <span class="posted-in"><a href='memo.html'>memo</a></span>
+              <span class="posted-in"><a href='tech.html'>tech</a></span>
            
          
           <span class="comments">
@@ -123,9 +123,28 @@
       </div><!-- article -->
 
       <div class="article-content">
-      <p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160524_120203_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160524_120203_HD"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160523_190859_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160523_190859_HD"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160523_195744_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160523_195744_HD"/></p>
+      <ol>
+<li>创建一个 apple-app-site-association 文件(JSON), 配置具体某个 App 可以 handle 哪些 url
+示例:
+{
+&quot;applinks&quot;: {
+    &quot;apps&quot;: [],
+    &quot;details&quot;: [
+        {
+            &quot;appID&quot;: &quot;applinks:2HHW7J2HF4.com.diqiugang.2c&quot;,
+            &quot;paths&quot;: [ &quot;*&quot;]
+        }
+    ]
+}
+}</li>
+<li>上传文件到一个 https 的 web server 上, 可以放在根目录 / 或者 .well-known 文件夹下</li>
+<li>设置app 处理 universal links
+1) 设置 com.apple.developer.associated-domains 字段, 添加一个需要 Universal links 处理的域名列表.
+To do this in Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each domain that your app supports, prefixed with applinks:, such as applinks:<a href="http://www.mywebsite.com">www.mywebsite.com</a>. Limit this list to no more than about 20 to 30 domains.
+2) </li>
+</ol>
+
+<p>从iOS 9.3开始, 只支持和当前页面不同域情况下打开App</p>
 
 
     
@@ -136,16 +155,16 @@
         <div class="large-6 columns">
         <p class="text-left" style="padding:15px 0px;">
       
-          <a href="14910651852531.html" 
-          title="Previous Post: TV 档 - 练习">&laquo; TV 档 - 练习</a>
+          <a href="15135826633523.html" 
+          title="Previous Post: Javascript中的数据结构与算法">&laquo; Javascript中的数据结构与算法</a>
       
         </p>
         </div>
         <div class="large-6 columns">
       <p class="text-right" style="padding:15px 0px;">
       
-          <a  href="14910650283646.html" 
-          title="Next Post: 我的王者室友">我的王者室友 &raquo;</a>
+          <a  href="15052867472023.html" 
+          title="Next Post: 手心里的时光">手心里的时光 &raquo;</a>
       
       </p>
         </div>
