@@ -103,53 +103,6 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
-                <a class="clearlink" href="14981186463825.html">
-                
-                  <h1>macOS 下 Charles 设置移动端代理遇到的坑 - shadowsocks</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>Charles 设置移动端抓包没有那么困难, 大部分的问题基本都搜得到, 不过最近遇到了一个比较奇怪的问题, 对于手机常开 shadowsocks 之类科学上网 App 的小伙伴可以注意一下, 因为被这个坑了1个多小时, 所以在这里记一下备忘.</p>
-
-<p>按正常的情况: 如果手机配置正确, 在配置好代理的时候, Charles 是会弹窗提示 &quot;有新设备连接, 是否允许&quot; 的. </p>
-
-<p>Charles 所有的配置都是之前已经配好而且一直在用的所以电脑端配置有问题的可能性极小, 但这次在自己手机端配置好代理之后, Charles 却一直没有任何新设备连接提示. 是的, 没有任何提示... 于是就踏上了没有任何调试信息调试工具辅助的 debug 之路</p>
-
-<p>大概的 debug 过程: 同事的手机连接他自己的 Charles 没问题, 同事的这部手机连接我的 Charles 也没问题, 我的手机连接同事的 Charles 依然有问题, 所以基本可以确定是我自己手机的问题了. 因为我的手机(MIUI)之前 Root 并装了 Google 框架, 所以刚开始以为是 Google 框架的问题, 但是当我把 Google 所有服务全部卸载重启之后发现依然连不上的时候, 我发现问题并没有那么简单...</p>
-
-<p>总结出来就是一句话:</p>
-
-<p><strong>使用 Charles 设置移动端抓包的时候, 手机记得一定要关闭 shadowsocks 之类的代理 App, 就算是规则代理也不行.</strong></p>
-
-<p>之前一直以为 shadowsocks 的规则代理只会对规则内列表起作用, 所以这次设置 Charles 就没有考虑到这方面...</p>
-
-<p>所以基于这样的实际情况, 推测 ss 开启的情况下, 就算是开启基于规则的代理策略, 也会默认监听匹配所有 socket 请求, 如果匹配上就会转到代理服务器, 如果匹配不上则会以自己的身份直接转发给对应的地址(从Android系统设置里的耗电和网络流量排行中也可以看得出来), 估计就是因为 shadowsocks 对所有请求的代理导致 Charles 无法识别移动端的吧</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/6/22</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='macOS.html'>macOS</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
                 <a class="clearlink" href="14966456619747.html">
                 
                   <h1>Mac下终端常用命令</h1>
@@ -421,6 +374,39 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
                 </div>
               </div><!-- article -->
         
+			<div class="article">
+                <a class="clearlink" href="14910672431139.html">
+                
+                  <h1>那你很棒棒哦</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160727_001958.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160727_001958"/></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2017/4/2</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='memo.html'>memo</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
               
 
 
@@ -494,12 +480,6 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
 	      
 		      
 			      <li class="post">
-			        <a href="15135826633523.html">Javascript中的数据结构与算法</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
 			        <a href="15119438660955.html">iOS Universal Links 配置流程</a>
 			      </li>
 		     
@@ -519,6 +499,12 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
 		      
 			      <li class="post">
 			        <a href="15002839379080.html">微信小程序的一些坑</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="14981186463825.html">macOS 下 Charles 设置移动端代理遇到的坑 - shadowsocks</a>
 			      </li>
 		     
 		  
