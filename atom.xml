@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[kavalon]]></title>
+  <title><![CDATA[kk]]></title>
   <link href="http://klovelovely.github.io/atom.xml" rel="self"/>
   <link href="http://klovelovely.github.io/"/>
-  <updated>2018-02-06T10:00:47+08:00</updated>
+  <updated>2018-04-25T16:48:09+08:00</updated>
   <id>http://klovelovely.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[大胡子与我]]></title>
+    <link href="http://klovelovely.github.io/15246385773948.html"/>
+    <updated>2018-04-25T14:42:57+08:00</updated>
+    <id>http://klovelovely.github.io/15246385773948.html</id>
+    <content type="html"><![CDATA[
+<blockquote>
+<p>结婚以前大胡子问过我一句很奇怪的话：“你要一个赚多少钱的丈夫？”<br/>
+我说：“看得不顺眼的话，千万富翁也不嫁；看得中意，亿万富翁也嫁。”<br/>
+“说来说去，你总想嫁有钱的。”<br/>
+“也有例外的时候。”我叹了口气。<br/>
+“如果跟我呢？”他很自然地问。<br/>
+“那只要吃得饱的钱也算了。”<br/>
+他思索了一下，又问：“你吃得多吗？”<br/>
+我十分小心地回答：“不多，不多，以后还可以少吃点。”<br/>
+就这几句对话，我就成了大胡子荷西的太太。<br/>
+----------三毛</p>
+</blockquote>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[less 和 sass 中关于变量声明顺序的处理差别]]></title>
@@ -35,6 +57,16 @@
 
 <p>参考:<br/>
 <img src="media/15236164296168/sass%E5%92%8Cless%E5%8F%98%E9%87%8F%E5%AF%B9%E6%AF%94.png" alt="sass和less变量声明顺序对编译结果的影响对比"/></p>
+
+<p>另外关于 <code>!default</code> 的奇怪的变量声明覆盖方式:</p>
+
+<p><img src="media/15236164296168/15238607890706.jpg" alt=""/></p>
+
+<p><img src="media/15236164296168/15238607612839.jpg" alt=""/></p>
+
+<p>使用的 sass less 在线编译器:<br/>
+<a href="https://www.sassmeister.com/">https://www.sassmeister.com/</a><br/>
+<a href="http://tool.oschina.net/less">http://tool.oschina.net/less</a></p>
 
 ]]></content>
   </entry>
@@ -514,19 +546,6 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
 <img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7387.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7387"/><br/>
 <img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7389.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7389"/><br/>
 <img src="http://oajzs3iqp.bkt.clouddn.com/IMG_7390.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_7390"/></p>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[手机2]]></title>
-    <link href="http://klovelovely.github.io/14910651651487.html"/>
-    <updated>2017-04-02T00:46:05+08:00</updated>
-    <id>http://klovelovely.github.io/14910651651487.html</id>
-    <content type="html"><![CDATA[
-<p><img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160524_120203_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160524_120203_HD"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160523_190859_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160523_190859_HD"/><br/>
-<img src="http://oajzs3iqp.bkt.clouddn.com/IMG_20160523_195744_HDR.jpg?imageMogr2/auto-orient/thumbnail/960000@/strip" alt="IMG_20160523_195744_HD"/></p>
 
 ]]></content>
   </entry>
