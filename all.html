@@ -107,6 +107,141 @@
 		<div class="markdown-body home-categories">
 		
 			<div class="article">
+                <a class="clearlink" href="15326050950804.html">
+                
+                  <h1>Ubuntu 环境下配置问题</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ul>
+<li><p>GCC</p>
+
+<pre><code class="language-bash">sudo apt-get install build-essential
+</code></pre></li>
+<li><p>sudo apt-get install python-pip is failing</p>
+
+<pre><code class="language-bash">sudo apt-get install python-pip
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+E: Unable to locate package python-pip
+</code></pre>
+
+<p>python-pip is in the universe repositories, therefore use the steps below:</p>
+
+<pre><code class="language-bash">sudo apt-get install software-properties-common
+sudo apt-add-repository universe
+sudo apt-get update
+sudo apt-get install python-pip
+</code></pre></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/7/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='tech.html'>tech</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15325930441115.html">
+                
+                  <h1>安卓某些机型 webview 中的一些坑</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<ol>
+<li>不支持 Object.assign()
+
+<ul>
+<li>华为荣耀6 - Android 4.4.2 - EMUI 3.0</li>
+<li>vivo V3Max - Android 5.1.1 - Funtouch OS_2.5.1</li>
+</ul></li>
+</ol>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/7/26</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='tech.html'>tech</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
+                <a class="clearlink" href="15324846208194.html">
+                
+                  <h1>Mac升级到10.13.2后，从非AppStore渠道下载的软件，打开时提示：已损坏,打不开. 您应该将它移到废纸篓</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>从非AppStore渠道下载的软件，打开时提示：<br/>
+Mac 下载软件显示 已损坏,打不开. 您应该将它移到废纸篓.</p>
+
+<p>解决办法：在终端输入：sudo spctl --master-disable，显示password输入密码然后回车即可<br/>
+在此之前偏好设置里这里面是没有‘任何来源’这一项的，当执行完上面的命令后就有了</p>
+
+<p><img src="media/15324846208194/15324846448409.jpg" alt=""/></p>
+
+<p>来源链接：<a href="https://www.jianshu.com/p/0efce38397ca">https://www.jianshu.com/p/0efce38397ca</a></p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2018/7/25</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='macOS.html'>macOS</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+			<div class="article">
                 <a class="clearlink" href="15246385773948.html">
                 
                   <h1>大胡子与我</h1>
@@ -114,18 +249,17 @@
                       
                       <div class="a-content-text">
                         
-                        	<blockquote>
-<p>结婚以前大胡子问过我一句很奇怪的话：“你要一个赚多少钱的丈夫？”<br/>
-我说：“看得不顺眼的话，千万富翁也不嫁；看得中意，亿万富翁也嫁。”<br/>
-“说来说去，你总想嫁有钱的。”<br/>
-“也有例外的时候。”我叹了口气。<br/>
-“如果跟我呢？”他很自然地问。<br/>
-“那只要吃得饱的钱也算了。”<br/>
-他思索了一下，又问：“你吃得多吗？”<br/>
-我十分小心地回答：“不多，不多，以后还可以少吃点。”<br/>
-就这几句对话，我就成了大胡子荷西的太太。<br/>
-----------三毛</p>
-</blockquote>
+                        	<pre><code>结婚以前大胡子问过我一句很奇怪的话：“你要一个赚多少钱的丈夫？”
+我说：“看得不顺眼的话，千万富翁也不嫁；看得中意，亿万富翁也嫁。”
+“说来说去，你总想嫁有钱的。”
+“也有例外的时候。”我叹了口气。
+“如果跟我呢？”他很自然地问。
+“那只要吃得饱的钱也算了。”
+他思索了一下，又问：“你吃得多吗？”
+我十分小心地回答：“不多，不多，以后还可以少吃点。”
+就这几句对话，我就成了大胡子荷西的太太。
+                                              ----三毛
+</code></pre>
 
                         
                       </div>
@@ -194,144 +328,6 @@
                   <div class="more-left left">
                   
                     <span class="date">2018/4/13</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='tech.html'>tech</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15208234569015.html">
-                
-                  <h1>树莓派相关 (to MMY)</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<p>---点亮树莓派---<br/>
-主板: 树莓派3B<br/>
-电源: 5.1V 2.5A电源(官方推荐的) &amp; 小米/公牛插板(安全第一)<br/>
-存储+系统: 16-32G的SD卡<br/>
-显示: 任意显示器 &amp; HDMI线</p>
-
-<p>---保护树莓派(避免短路/过热/磕碰)---<br/>
-保护壳: 最好带风扇, 注意外壳不要覆盖GPIO口</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/3/12</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='IoT.html'>IoT</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15205850841204.html">
-                
-                  <h1>apply call 和 bind 的区别</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<h3 id="toc_0">apply</h3>
-
-<p>fun.apply(thisArg[, argArray])</p>
-
-<h3 id="toc_1">call</h3>
-
-<p>使用給定的this參數以及分別給定的參數來呼叫某個函數<br/>
-fun.call(thisArg[, arg1[, arg2[, ...]]])</p>
-
-<h3 id="toc_2">bind</h3>
-
-<p>返回一个函数, 类似 call</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2018/3/9</span>
-                    <span>posted in&nbsp;</span> 
-          				  
-          					    <span class="posted-in"><a href='tech.html'>tech</a></span>
-          				   
-                  </div>
-                  <div class="more-right right">
-                  <span class="comments">
-                      
-
-                       
-                  </span>
-                  </div>
-                </div>
-              </div><!-- article -->
-        
-			<div class="article">
-                <a class="clearlink" href="15119438660955.html">
-                
-                  <h1>iOS Universal Links 配置流程</h1>
-                  <div class="a-content">
-                      
-                      <div class="a-content-text">
-                        
-                        	<ol>
-<li>创建一个 apple-app-site-association 文件(JSON), 配置具体某个 App 可以 handle 哪些 url
-示例:
-{
-&quot;applinks&quot;: {
-    &quot;apps&quot;: [],
-    &quot;details&quot;: [
-        {
-            &quot;appID&quot;: &quot;applinks:2HHW7J2HF4.com.diqiugang.2c&quot;,
-            &quot;paths&quot;: [ &quot;*&quot;]
-        }
-    ]
-}
-}</li>
-<li>上传文件到一个 https 的 web server 上, 可以放在根目录 / 或者 .well-known 文件夹下</li>
-<li>设置app 处理 universal links
-1) 设置 com.apple.developer.associated-domains 字段, 添加一个需要 Universal links 处理的域名列表.
-To do this in Xcode, open the Associated Domains section in the Capabilities tab and add an entry for each domain that your app supports, prefixed with applinks:, such as applinks:<a href="http://www.mywebsite.com">www.mywebsite.com</a>. Limit this list to no more than about 20 to 30 domains.
-2) </li>
-</ol>
-
-<p>从iOS 9.3开始, 只支持和当前页面不同域情况下打开App</p>
-
-                        
-                      </div>
-                  </div>
-                </a>
-                <div class="read-more clearfix">
-                  <div class="more-left left">
-                  
-                    <span class="date">2017/11/29</span>
                     <span>posted in&nbsp;</span> 
           				  
           					    <span class="posted-in"><a href='tech.html'>tech</a></span>
@@ -424,6 +420,24 @@ To do this in Xcode, open the Associated Domains section in the Capabilities tab
 	      
 		      
 			      <li class="post">
+			        <a href="15326050950804.html">Ubuntu 环境下配置问题</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15325930441115.html">安卓某些机型 webview 中的一些坑</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15324846208194.html">Mac升级到10.13.2后，从非AppStore渠道下载的软件，打开时提示：已损坏,打不开. 您应该将它移到废纸篓</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15246385773948.html">大胡子与我</a>
 			      </li>
 		     
@@ -431,24 +445,6 @@ To do this in Xcode, open the Associated Domains section in the Capabilities tab
 		      
 			      <li class="post">
 			        <a href="15236164296168.html">less 和 sass 中关于变量声明顺序的处理差别</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15208234569015.html">树莓派相关 (to MMY)</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15205850841204.html">apply call 和 bind 的区别</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15119438660955.html">iOS Universal Links 配置流程</a>
 			      </li>
 		     
 		  
@@ -525,7 +521,8 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
 
     
 
-
+<script src="https://js.fundebug.cn/fundebug.1.1.2.min.js"
+  apikey="39e2cb7314bf69a5cc0259f85440381d92a8e171e05f679a1664f2169e14d1b7"></script>
 
   </body>
 </html>

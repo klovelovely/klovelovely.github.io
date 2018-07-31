@@ -128,6 +128,8 @@
 
       <div class="article-content">
       <ul>
+<li><p>在 Finder 窗口顶部显示当前完整路径<br/>
+终端输入：<code>defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES</code></p></li>
 <li><p>Mac App Store 下载失败<br/>
 终端输入：<code>defaults write com.apple.appstore ShowDebugMenu -bool true</code></p></li>
 <li><p>显示和隐藏文件<br/>
@@ -137,8 +139,7 @@
 <li><p>路由表的输出信息<br/>
 终端输入：<code>netstat -nr</code></p></li>
 <li><p>配置环境变量<br/>
-Mac 环境变量有两种，一种是全局的，公用的，针对系统所有用户；另一种是用户级的，只对当前用户有效。</p></li>
-</ul>
+Mac 环境变量有两种，一种是全局的，公用的，针对系统所有用户；另一种是用户级的，只对当前用户有效。</p>
 
 <p>/etc/profile 全局配置文件，所有用户登录时读取此文件，一般不修改。<br/>
 使用时需使用 sudo 以Root权限运行（慎用）</p>
@@ -159,13 +160,14 @@ Mac 环境变量有两种，一种是全局的，公用的，针对系统所有�
 开始（open）
 按 “o” 键  在光标所在行下面新建一行
 按 “O” 键  在光标所在行上面新建一行</li>
-<li><p>退出vi编辑器(冒号在前)<br/>
-:x  退出并保存。<br/>
-:wq 退出并保存。<br/>
-:w 仅保存。<br/>
-:w filename 保存为指定的文件，可用于另存为。<br/>
-:q 仅退出，有修改内容时会提示要保存。<br/>
-:q! 强制不保存退出。</p></li>
+<li>退出vi编辑器(冒号在前)
+:x  退出并保存。
+:wq 退出并保存。
+:w 仅保存。
+:w filename 保存为指定的文件，可用于另存为。
+:q 仅退出，有修改内容时会提示要保存。
+:q! 强制不保存退出。</li>
+</ul></li>
 <li><p>网络设置</p>
 
 <ol>
@@ -288,6 +290,24 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
 	      
 		      
 			      <li class="post">
+			        <a href="15326050950804.html">Ubuntu 环境下配置问题</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15325930441115.html">安卓某些机型 webview 中的一些坑</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
+			        <a href="15324846208194.html">Mac升级到10.13.2后，从非AppStore渠道下载的软件，打开时提示：已损坏,打不开. 您应该将它移到废纸篓</a>
+			      </li>
+		     
+		  
+		      
+			      <li class="post">
 			        <a href="15246385773948.html">大胡子与我</a>
 			      </li>
 		     
@@ -295,24 +315,6 @@ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder;say flushed<br/>
 		      
 			      <li class="post">
 			        <a href="15236164296168.html">less 和 sass 中关于变量声明顺序的处理差别</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15208234569015.html">树莓派相关 (to MMY)</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15205850841204.html">apply call 和 bind 的区别</a>
-			      </li>
-		     
-		  
-		      
-			      <li class="post">
-			        <a href="15119438660955.html">iOS Universal Links 配置流程</a>
 			      </li>
 		     
 		  
@@ -389,7 +391,8 @@ Theme used <a target="_blank" href="http://github.com">GitHub CSS</a>.</p>
 
     
 
-
+<script src="https://js.fundebug.cn/fundebug.1.1.2.min.js"
+  apikey="39e2cb7314bf69a5cc0259f85440381d92a8e171e05f679a1664f2169e14d1b7"></script>
 
   </body>
 </html>
